@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card narrow" style="text-align:center">
+  <h2>Set up OTP for {{ username }}</h2>
+  <p class="muted">Scan this QR code with <b>Google Authenticator</b> (free app).</p>
+  <div style="background:#fff; padding:16px; border-radius:12px; display:inline-block; width:240px">{{ qr_svg|safe }}</div>
+  <p><small>Or enter this key manually: <code>{{ secret }}</code></small></p>
+  <a class="btn" href="{{ url_for('login') }}">Go to login</a>
+</div>
+{% endblock %}

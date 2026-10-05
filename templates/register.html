@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card narrow">
+  <h2>Create account</h2>
+  <form method="post">
+    <label>Username</label><input name="username" required>
+    <label>Password</label><input name="password" type="password" required>
+    <label>Role</label>
+    <select name="role">
+      <option value="employee">Employee</option>
+      <option value="manager">Manager</option>
+      <option value="admin">Admin</option>
+    </select>
+    <button>Register</button>
+  </form>
+</div>
+{% endblock %}

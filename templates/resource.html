@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2 class="ALLOW">✅ {{ res.title }}</h2>
+  <p>Access granted to <b>{{ user.username }}</b> ({{ user.role }}).</p>
+  <p class="muted">This is sample internal data. In a real company this would be the HR, finance or admin system.</p>
+  <a class="btn" href="{{ url_for('dashboard') }}">Back</a>
+</div>
+{% endblock %}

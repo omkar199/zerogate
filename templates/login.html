@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card narrow">
+  <h2>Login</h2>
+  <form method="post">
+    <label>Username</label><input name="username" required>
+    <label>Password</label><input name="password" type="password" required>
+    <details>
+      <summary>Demo mode: simulate an attack (optional)</summary>
+      <p><small>Leave empty to use your real IP, browser and time.</small></p>
+      <label>Fake IP address</label><input name="demo_ip" placeholder="e.g. 45.33.12.9">
+      <label>Fake device / browser name</label><input name="demo_device" placeholder="e.g. Hacker-Laptop">
+      <label>Fake login hour (0-23)</label><input name="demo_hour" type="number" min="0" max="23" placeholder="e.g. 3">
+    </details>
+    <button>Login</button>
+  </form>
+  <p><small>No account? <a href="{{ url_for('register') }}">Register</a></small></p>
+</div>
+{% endblock %}

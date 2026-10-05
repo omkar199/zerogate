@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>Welcome, {{ user.username }}</h2>
+  <p class="muted">Role: <b>{{ user.role }}</b> · MFA verified this session: <b>{{ "Yes" if mfa else "No" }}</b></p>
+</div>
+<h3>Internal resources</h3>
+<p class="muted">Every click is checked again: your role and MFA status decide access (Zero Trust).</p>
+<div class="grid">
+  {% for key, r in resources.items() %}
+  <div class="card">
+    <h3>{{ r.title }}</h3>
+    <p><small>Roles: {{ r.roles|join(", ") }}<br>OTP required: {{ "Yes" if r.needs_mfa else "No" }}</small></p>
+    <a class="btn" href="{{ url_for('resource', name=key) }}">Open</a>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

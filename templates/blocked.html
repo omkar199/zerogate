@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card narrow">
+  <h2 class="BLOCK">⛔ Access blocked</h2>
+  <p>Risk score: <b class="BLOCK">{{ score }}/100</b></p>
+  <ul>{% for r in reasons %}<li>{{ r }}</li>{% endfor %}</ul>
+  <p class="muted">This attempt has been logged for the security team.</p>
+  <a class="btn" href="{{ url_for('index') }}">Back</a>
+</div>
+{% endblock %}

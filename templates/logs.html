@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Security logs</h2>
+<div class="grid">
+  {% for d in ["ALLOW", "OTP", "BLOCK", "FAILED"] %}
+  <div class="card"><div class="muted">{{ d }}</div><div class="stat {{ d }}">{{ stats.get(d, 0) }}</div></div>
+  {% endfor %}
+</div>
+<div class="card table-wrap">
+  <table>
+    <tr><th>Time</th><th>User</th><th>IP</th><th>Action</th><th>Score</th><th>Reasons</th><th>Decision</th></tr>
+    {% for l in logs %}
+    <tr>
+      <td>{{ l.time }}</td><td>{{ l.username }}</td><td>{{ l.ip }}</td><td>{{ l.action }}</td>
+      <td>{{ l.score }}</td><td>{{ l.reasons }}</td><td class="{{ l.decision }}"><b>{{ l.decision }}</b></td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}
